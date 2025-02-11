@@ -25,14 +25,28 @@ function setup(){
     angleMode(DEGREES);
     noLoop();
     cleanData();
-    charts.push(new BarChart(cleanedData,"Age_Group", "Female", 100, 200, 10, 5, 1, 50, 150));
-    charts.push(new BarChart(cleanedData,"Age_Group", "Male", 150, 300, 1, 5, 1, 100, 400));
-    charts.push(new BarChart(cleanedData,"Age_Group", "Total", 200, 400, 20, 20, 3, 300, 250));
+    charts.push(new BarChart({
+        data:cleanedData,
+        xValue: "Age_Group", 
+        yValue:"Female",
+        //  chartHeight : 100, 
+        //  chartWidth: 200, 
+        //  barWidth: 10, 
+        //  margin: 5, 
+        //  axisThickness: 1, 
+        //  chartPosX:50, 
+        //  chartPosY:150
+    }
+    ));
+
+
+    // charts.push(new BarChart(cleanedData,"Age_Group", "Male", 150, 300, 1, 5, 1, 100, 400));
+    // charts.push(new BarChart(cleanedData,"Age_Group", "Total", 200, 400, 20, 20, 3, 300, 250));
 
 }
  
 function draw() {
-    background(100,150,255)
+    background(75,136,162)
     charts.forEach(chart => {
         chart.renderBars();
         chart.renderAxis();
