@@ -24,16 +24,19 @@ class BarChart {
     }
     renderBars() {
     push();
-    translate(this.chartPosX,this.chartPosY)
+    translate(this.chartPosX,this.chartPosY -this.barWidth - this.gap)
+    rotate(90)
+    translate(-this.margin,0)
     push()
-    translate(this.margin,0)
+    
     for (let i = 0; i < this.data.length; i++) {
-        let xPos = (this.barWidth + this.gap) * i;
+        let xPos = (this.barWidth + this.gap) * -i;
         fill(this.barColour)
         noStroke()
         rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler)
         
     }
+    
     pop()
     pop()
     }
@@ -77,6 +80,7 @@ class BarChart {
     stroke(this.axisTickColour);
     strokeWeight(this.axisTickThickness);
     let tickIncrement = this.chartHeight/this.numTicks;
+    rotate(90)
     for(let i = 0; i <= this.numTicks; i++) {
         line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
     }
@@ -103,4 +107,35 @@ class BarChart {
 //     }
 //     pop()
 //     pop()
+//     }
+
+// renderBars() {
+//     push();
+//     translate(this.chartPosX,this.chartPosY -this.barWidth - this.gap)
+//     rotate(90)
+//     translate(-this.margin,0)
+//     push()
+    
+//     for (let i = 0; i < this.data.length; i++) {
+//         let xPos = (this.barWidth + this.gap) * -i;
+//         fill(this.barColour)
+//         noStroke()
+//         rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler)
+        
+//     }
+
+// }
+
+// renderTicks() {
+//     push();
+//     translate(this.chartPosX,this.chartPosY);
+//     noFill();
+//     stroke(this.axisTickColour);
+//     strokeWeight(this.axisTickThickness);
+//     let tickIncrement = this.chartHeight/this.numTicks;
+//     rotate(90)
+//     for(let i = 0; i <= this.numTicks; i++) {
+//         line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
+//     }
+//     pop();
 //     }
