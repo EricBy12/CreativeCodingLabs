@@ -22,71 +22,68 @@ class BarChart {
         this.numTicks = 10;
         this.tickLength = 3;
     }
-    renderBars() {
-    push();
-    translate(this.chartPosX,this.chartPosY -this.barWidth - this.gap)
-    rotate(90)
-    translate(-this.margin,0)
-    push()
-    
-    for (let i = 0; i < this.data.length; i++) {
-        let xPos = (this.barWidth + this.gap) * -i;
-        fill(this.barColour)
-        noStroke()
-        rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler)
-        
-    }
-    
-    pop()
-    pop()
-    }
 
-    renderAxis() {
+    renderBars() {
         push();
         translate(this.chartPosX,this.chartPosY)
-        noFill()
-        stroke(this.axisColour)
-        strokeWeight(this.axisThickness)
-        line(0,0,0,-this.chartHeight)
-        line(0,0,this.chartWidth,0)
-        pop()
-    }
-
-    renderLabels() {
-    push();
-    translate(this.chartPosX,this.chartPosY)
-
-    push()
-    translate(this.margin,0)
-    for (let i = 0; i < this.data.length; i++) {
-        let xPos = (this.barWidth + this.gap) * i;        
         push()
-        fill(this.axisTextColour);
-        textAlign(LEFT, CENTER)
-        translate(xPos + (this.barWidth/2), 15)
-        textSize(15)
-        rotate(60)
-        text (this.data[i][this.xValue], 0 , 0);
+        translate(this.margin,0)
+        for (let i = 0; i < this.data.length; i++) {
+            let xPos = (this.barWidth + this.gap) * i;
+            fill(this.barColour)
+            noStroke()
+            rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler)
+            
+        }
         pop()
+        pop()
+        }
+    
+        renderAxis() {
+            push();
+            translate(this.chartPosX,this.chartPosY)
+            noFill()
+            stroke(this.axisColour)
+            strokeWeight(this.axisThickness)
+            line(0,0,0,-this.chartHeight)
+            line(0,0,this.chartWidth,0)
+            pop()
+        }
+    
+        renderLabels() {
+        push();
+        translate(this.chartPosX,this.chartPosY)
+    
+        push()
+        translate(this.margin,0)
+        for (let i = 0; i < this.data.length; i++) {
+            let xPos = (this.barWidth + this.gap) * i;        
+            push()
+            fill(this.axisTextColour);
+            textAlign(LEFT, CENTER)
+            translate(xPos + (this.barWidth/2), 15)
+            textSize(15)
+            rotate(60)
+            text (this.data[i][this.xValue], 0 , 0);
+            pop()
+        }
+        pop()
+        pop()
+        }
+    
+        renderTicks() {
+        push();
+        translate(this.chartPosX,this.chartPosY);
+        noFill();
+        stroke(this.axisTickColour);
+        strokeWeight(this.axisTickThickness);
+        let tickIncrement = this.chartHeight/this.numTicks;
+        for(let i = 0; i <= this.numTicks; i++) {
+            line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
+        }
+        pop();
+        }
     }
-    pop()
-    pop()
-    }
-
-    renderTicks() {
-    push();
-    translate(this.chartPosX,this.chartPosY);
-    noFill();
-    stroke(this.axisTickColour);
-    strokeWeight(this.axisTickThickness);
-    let tickIncrement = this.chartHeight/this.numTicks;
-    rotate(90)
-    for(let i = 0; i <= this.numTicks; i++) {
-        line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
-    }
-    pop();
-    }
-}
 
 
 
@@ -138,4 +135,22 @@ class BarChart {
 //         line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
 //     }
 //     pop();
+//     }
+// renderBars() {
+//     push();
+//     translate(this.chartPosX,this.chartPosY -this.barWidth - this.gap)
+//     rotate(90)
+//     translate(-this.margin,0)
+//     push()
+    
+//     for (let i = 0; i < this.data.length; i++) {
+//         let xPos = (this.barWidth + this.gap) * -i;
+//         fill(this.barColour)
+//         noStroke()
+//         rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler)
+        
+//     }
+    
+//     pop()
+//     pop()
 //     }
