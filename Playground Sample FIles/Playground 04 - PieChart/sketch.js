@@ -38,7 +38,6 @@ function setup() {
 	total = 0
 
 	myNewArray.forEach(item => total += item);
-	// console.log(total)
 }
 
 function draw() {
