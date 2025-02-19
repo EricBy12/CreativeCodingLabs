@@ -62,8 +62,8 @@ function draw() {
 	noStroke()
 	text("John",150,-200)
 
-	
-	///ellipse(0,0,200,200)
+	fill(200)
+	ellipse(0,0,200,200)
 
 	
 
