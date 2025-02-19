@@ -22,6 +22,7 @@ let total;
 function preload() {
     data= loadTable('data/video_games_sales.csv', 'csv', 'header')
 }
+charts.push(new BarChart(cleanedData,"Age_Group", "Male", 150, 300, 1, 5, 1, 100, 400));
 
 function setup() {
     createCanvas(500,500);
@@ -34,9 +35,17 @@ function setup() {
     pieChartData.forEach(item => total += item); 
 }
 
+
 function draw() {
     background(0,100,100)
+    charts.forEach(chart => {
+        chart.renderBars();
+        chart.renderAxis();
+        chart.renderLabels();
+        chart.renderTicks();
+    })
 }
+
 
 
 function cleanData() {
