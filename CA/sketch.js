@@ -17,10 +17,8 @@ let barColour;
 let axisTextColour;
 let total;
 
-
-
 function preload() {
-    data= loadTable('data/video_games_sales.csv', 'csv', 'header')
+    data= loadTable('data/video_games_sales.csv', 'csv', 'header');
 }
 charts.push(new BarChart(cleanedData,"Age_Group", "Male", 150, 300, 1, 5, 1, 100, 400));
 
@@ -29,28 +27,26 @@ function setup() {
     angleMode(DEGREES);
     noLoop();
     cleanData();
-
-    let pieChartData = cleanedData.map(row => row.platform);
-    total = 0;
-    pieChartData.forEach(item => total += item); 
+    GetDonutData();
 }
 
 
 function draw() {
-    background(0,100,100)
-    charts.forEach(chart => {
-        chart.renderBars();
-        chart.renderAxis();
-        chart.renderLabels();
-        chart.renderTicks();
-    })
+    background(0,100,100);
+    renderBarChart();
+    
 }
 
+function GetDonutData() {
+    let donutData = cleanedData.map(row => row.platform);
+    total = 0;
+    donutData.forEach(item => total += item);
 
+}
 
 function cleanData() {
     for (let i = 0; i < data.rows.length; i++) {
-        cleanedData.push(data.rows[i].obj)
+        cleanedData.push(data.rows[i].obj);
     }
 
     for (let i = 0; i < cleanedData.length; i++) {
@@ -67,4 +63,16 @@ function cleanData() {
         cleanedData[i].other_sales = parseFloat(cleanedData[i].other_sales);
         cleanedData[i].global_sales = parseFloat(cleanedData[i].global_sales);
     }
+}
+
+function renderBarChart() {
+    charts.forEach(chart => {
+        chart.renderBarChartBars();
+        chart.renderBarChartAxis();
+        chart.renderBarChartLabels();
+        chart.renderBarChartTicks();
+    })
+}
+function renderDonutChart() {
+    charts.forEach(chart => {chart.renderDonutChart();});
 }

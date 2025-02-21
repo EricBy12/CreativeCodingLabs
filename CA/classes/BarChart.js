@@ -23,7 +23,7 @@ constructor(obj) {
     this.tickLength = 3;
 }
 
-renderBars() {
+renderBarChartBars() {
     push();
     translate(this.chartPosX, this.chartPosY);
     push();
@@ -38,7 +38,7 @@ renderBars() {
     pop();
 }
 
-renderAxis() {
+renderBarChartAxis() {
     push();
     translate(this.chartPosX, this.chartPosY);
     noFill();
@@ -48,7 +48,7 @@ renderAxis() {
     pop();
 }
 
-renderLabels(){
+renderBarChartLabels(){
     push();
     translate(this.chartPosX, this.chartPosY);
     push();
@@ -69,7 +69,7 @@ renderLabels(){
     pop();
 }
 
-renderTicks() {
+renderBarChartTicks() {
     push();
     translate(this.chartPosX, this.chartPosY);
     noFill();

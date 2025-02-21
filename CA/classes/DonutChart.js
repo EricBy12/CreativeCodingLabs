@@ -1,4 +1,4 @@
-class StackedChart {
+class DonutChat {
     constructor(obj) {
         this.data = obj.data
         this.chartHeight = obj.chartHeight;
@@ -24,7 +24,7 @@ class StackedChart {
         this.tickLength = 3;
     }
 
-    renderChart() {
+    renderDonutChart() {
         for (let i = 0; i < cleanedData.length; i++) {
             
         }
