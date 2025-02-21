@@ -1,12 +1,50 @@
-Age_Group,Female,Male,Total
-0 - 5 years,20,20,20
-6 - 9 years,100,10,100
-10 - 14 years,200,500,700
-15 - 17 years,200,400,600
-18 - 20 years,20,400,400
-21 - 24 years,200,300,500
-25 - 34 years,400,240,280
-35 - 44 years,200,190,210
-45 - 54 years,100,170,270
-55 - 64 years,300,130,160
-65 years and over,110,210,320
+rank,name,platform,year,genre,publisher,na_sales,eu_sales,jp_sales,other_sales,global_sales
+5959,Imagine: Makeup Artist,DS,2020,Simulation,Ubisoft,0.27,0,0,0.02,0.29
+14393,Phantasy Star Online 2 Episode 4: Deluxe Package,PS4,2017,Role-Playing,Sega,0,0,0.03,0,0.03
+16244,Phantasy Star Online 2 Episode 4: Deluxe Package,PSV,2017,Role-Playing,Sega,0,0,0.01,0,0.01
+16441,Brothers Conflict: Precious Baby,PSV,2017,Action,Idea Factory,0,0,0.01,0,0.01
+222,FIFA 17,PS4,2016,Sports,Electronic Arts,0.28,3.75,0.06,0.69,4.77
+272,Uncharted 4: A Thief's End,PS4,2016,Shooter,Sony Computer Entertainment,1.3,2.07,0.18,0.65,4.2
+352,Tom Clancy's The Division,PS4,2016,Shooter,Ubisoft,1.28,1.61,0.15,0.57,3.61
+772,Far Cry: Primal,PS4,2016,Action,Ubisoft,0.59,1.16,0.06,0.33,2.13
+847,Tom Clancy's The Division,XOne,2016,Shooter,Ubisoft,1.2,0.62,0,0.18,2.01
+1028,Overwatch,PS4,2016,Shooter,Activision,0.64,0.68,0.14,0.26,1.73
+1158,No Man's Sky,PS4,2016,Action,Hello Games,0.58,0.74,0.02,0.26,1.6
+1191,Dark Souls III,PS4,2016,Role-Playing,Namco Bandai Games,0.58,0.44,0.33,0.21,1.56
+1226,FIFA 17,XOne,2016,Sports,Electronic Arts,0.17,1.26,0,0.1,1.53
+1391,Doom (2016),PS4,2016,Shooter,Bethesda Softworks,0.49,0.66,0.02,0.22,1.39
+1570,Yokai Watch 3,3DS,2016,Action,Level 5,0,0,1.27,0,1.27
+1630,Madden NFL 17,PS4,2016,Sports,Electronic Arts,0.92,0.08,0,0.23,1.23
+1703,NBA 2K17,PS4,2016,Sports,Take-Two Interactive,0.83,0.14,0,0.22,1.19
+1729,Ratchet & Clank (2016),PS4,2016,Platform,Sony Computer Entertainment,0.32,0.64,0.04,0.18,1.17
+1960,Naruto Shippuden: Ultimate Ninja Storm 4,PS4,2016,Fighting,Namco Bandai Games,0.39,0.41,0.1,0.16,1.06
+2214,The Legend of Zelda: Twilight Princess HD,WiiU,2016,Action,Nintendo,0.48,0.3,0.08,0.08,0.94
+2244,Pokken Tournament,WiiU,2016,Fighting,Namco Bandai Games,0.47,0.22,0.16,0.07,0.93
+2344,EA Sports UFC 2,PS4,2016,Sports,Electronic Arts,0.28,0.47,0,0.14,0.89
+2436,Far Cry: Primal,XOne,2016,Action,Ubisoft,0.46,0.32,0,0.07,0.85
+2446,Overwatch,XOne,2016,Shooter,Activision,0.52,0.25,0,0.08,0.85
+2450,Kirby: Planet Robobot,3DS,2016,Action,Nintendo,0.26,0.1,0.44,0.04,0.85
+2459,MLB 16: The Show,PS4,2016,Action,Sony Computer Entertainment,0.68,0,0,0.16,0.84
+2507,Madden NFL 17,XOne,2016,Sports,Electronic Arts,0.72,0.02,0,0.09,0.82
+2513,Street Fighter V,PS4,2016,Fighting,Capcom,0.35,0.26,0.08,0.13,0.82
+2993,Doom (2016),XOne,2016,Shooter,Bethesda Softworks,0.39,0.23,0,0.06,0.68
+3147,NBA 2K17,XOne,2016,Sports,Take-Two Interactive,0.54,0.04,0,0.07,0.64
+3151,LEGO Marvel's Avengers,PS4,2016,Action,Warner Bros. Interactive Entertainment,0.25,0.29,0,0.1,0.64
+3223,Dragon Quest Monsters Joker 3,3DS,2016,Role-Playing,Square Enix,0,0,0.63,0,0.63
+3650,Yokai Sangokushi,3DS,2016,Action,Level 5,0,0,0.55,0,0.55
+3748,Lego Star Wars: The Force Awakens,PS4,2016,Action,Warner Bros. Interactive Entertainment,0.14,0.32,0,0.08,0.54
+3929,Quantum Break,XOne,2016,Action,Microsoft Game Studios,0.27,0.19,0.01,0.04,0.51
+4263,Mario & Sonic at the Rio 2016 Olympic Games,3DS,2016,Action,Nintendo,0.04,0.16,0.24,0.01,0.46
+4352,Plants vs. Zombies: Garden Warfare 2,PS4,2016,Shooter,Electronic Arts,0.17,0.21,0,0.07,0.45
+4432,Plants vs. Zombies: Garden Warfare 2,XOne,2016,Shooter,Electronic Arts,0.26,0.15,0,0.04,0.44
+4511,Overwatch,PC,2016,Shooter,Activision,0.22,0.18,0,0.04,0.43
+4515,Minecraft,WiiU,2016,Misc,Microsoft Game Studios,0.18,0.09,0.14,0.03,0.43
+4660,Hyrule Warriors,3DS,2016,Action,Nintendo,0.16,0.12,0.11,0.03,0.42
+4822,EA Sports UFC 2,XOne,2016,Sports,Electronic Arts,0.23,0.14,0,0.04,0.4
+5017,Forza Horizon 3,XOne,2016,Racing,Microsoft Game Studios,0.15,0.2,0,0.03,0.38
+5058,FIFA 17,PS3,2016,Sports,Electronic Arts,0.02,0.29,0.01,0.05,0.38
+5098,Life is Strange,PS4,2016,Adventure,Square Enix,0.14,0.15,0.03,0.06,0.37
+5106,Tom Clancy's The Division,PC,2016,Shooter,Ubisoft,0.2,0.14,0,0.03,0.37
+5174,Resident Evil Zero,PS4,2016,Action,Capcom,0.09,0.17,0.05,0.05,0.36
+5270,Dark Souls III,XOne,2016,Role-Playing,Namco Bandai Games,0.23,0.09,0,0.03,0.35
+5290,Star Fox: Zero,WiiU,2016,Shooter,Nintendo,0.16,0.1,0.07,0.03,0.35

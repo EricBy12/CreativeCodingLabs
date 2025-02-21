@@ -20,14 +20,15 @@ let total;
 function preload() {
     data= loadTable('data/video_games_sales.csv', 'csv', 'header');
 }
-charts.push(new BarChart(cleanedData,"Age_Group", "Male", 150, 300, 1, 5, 1, 100, 400));
 
 function setup() {
-    createCanvas(500,500);
+    createCanvas(1500,1500);
     angleMode(DEGREES);
     noLoop();
     cleanData();
     GetDonutData();
+
+    
 }
 
 
@@ -65,7 +66,26 @@ function cleanData() {
     }
 }
 
+// function cleanData(){
+//     for(let i=0; i < data.rows.length; i++){
+//         cleanedData.push(data.rows[i].obj)
+//     }
+//     for(let i=0; i < cleanedData.length; i++ ){
+//         cleanedData[i].Female = parseInt(cleanedData[i].Female)
+//         cleanedData[i].Male = parseInt(cleanedData[i].Male)
+//         cleanedData[i].Total = parseInt(cleanedData[i].Total)
+//     }
+// }
+
 function renderBarChart() {
+
+    charts.push(new BarChart({
+        data:cleanedData,
+        xValue:"genre",
+        yValue:"eu_sales"
+    }
+    ));
+
     charts.forEach(chart => {
         chart.renderBarChartBars();
         chart.renderBarChartAxis();
@@ -74,5 +94,11 @@ function renderBarChart() {
     })
 }
 function renderDonutChart() {
+
+    charts.push(new BarChart({
+        data:cleanedData
+    }
+    ));
+
     charts.forEach(chart => {chart.renderDonutChart();});
 }

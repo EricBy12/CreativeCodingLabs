@@ -4,7 +4,7 @@ constructor(obj) {
     this.xValue = obj.xValue
     this.yValue = obj.yValue;
     this.chartHeight=obj.chartHeight || 300;
-    this.chartWidth=obj.chartWidth || 300;
+    this.chartWidth=obj.chartWidth ||1000;
     this.barWidth=obj.barWidth || 20;
     this.margin=obj.margin || 10;
     this.axisThickness =obj.axisThickness || 2;
@@ -58,7 +58,7 @@ renderBarChartLabels(){
         let xPos = (this.barWidth + this.gap) * i;
         push();
         fill(this.axisTextColour);
-        textAllign(LEFT,CENTER);
+        textAlign(LEFT,CENTER);
         translate(xPos + (this.barWidth/2), 15);
         textSize(15);
         rotate(60);
