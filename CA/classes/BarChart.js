@@ -1,14 +1,14 @@
 class BarChart{
 constructor(obj) {
     this.data = obj.data;
-    this.xValue = obj.xValue
+    this.xValue = obj.xValue;
     this.yValue = obj.yValue;
     this.chartHeight=obj.chartHeight || 300;
-    this.chartWidth=obj.chartWidth ||1000;
+    this.chartWidth=obj.chartWidth ||300;
     this.barWidth=obj.barWidth || 20;
     this.margin=obj.margin || 10;
     this.axisThickness =obj.axisThickness || 2;
-    this.axisTickThickness = 2 ;
+    this.axisTickThickness = 2;
     this.chartPosX = obj.xPos || 50;
     this.chartPosY = obj.yPos || 350;
 

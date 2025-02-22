@@ -1,32 +1,31 @@
-class DonutChat {
+class DonutChart {
     constructor(obj) {
         this.data = obj.data
-        this.chartHeight = obj.chartHeight;
-        this.chartWidth = obj.chartWidth;
-        this.xValue = obj.xValue;
-        this.yValue = obj.yValue;
-        this.barWidth = obj.barWidth;
-        this.margin = obj.margin;
-        this.axisThickness = obj.axisThickness;
-        this.axisTickThickness = obj.axisTickThickness;
-        this.chartPosX = obj.chartPosX;
-        this.chartPosY = obj.chartPosY;
-        
+        this.chartSize = obj.chartSize || 300;
+        this.chartPosX = obj.xPos || 50;
+        this.chartPosY = obj.yPos || 350;
 
-        this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
-        this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValue])));
-
-        this.axisColour= color(211,212,217);
-        this.axisTickColour= color(187,10,33);
-        this.barColour = color (187,10,33);
-        this.axisTextColour = color( 13,19,33);
-        this.numTicks = 10;
-        this.tickLength = 3;
+        chartColor = color(200,0,0);
     }
 
     renderDonutChart() {
-        for (let i = 0; i < cleanedData.length; i++) {
-            
+        push()
+        translate(this.chartPosX, this.chartPosY);
+        for (let i = 0; i < this.data.length; i++) {
+            fill(this.chartColor);
+            let start = 0;
+            let end = ((this.data[i] / total) * 360);
+            arc(0,0,this.chartSize,this.chartSize, start, end, PIE);
+            rotate(end);
         }
+        
+        fill(0);
+        noStroke();
+        textFont(font)//need to import font
+        text("This is a Donut chart...", 150, 200);
+
+        fill(200);
+        ellipse(0,0,(this.chartSize) / 2, (this.chartSize) / 2) // makes a circle half the size of the chart.
+        pop()
     }
 }
