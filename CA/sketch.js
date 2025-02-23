@@ -167,8 +167,8 @@ function drawDonut() {
 function drawStacked() {
     stackedCharts.push(new StackedChart({
         data:cleanedData,
-        xValue:"Age_Group",
-        yValues:["Male", "Female"]
+        xValue:"genre",
+        yValues:["Nintendo", "Capcom"]
     }
     ));
     
