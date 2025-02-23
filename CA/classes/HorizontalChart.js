@@ -1,4 +1,4 @@
-class BarChart{
+class HorizontalChart{
     constructor(obj) {
         this.data = obj.data;
         this.xValue = obj.xValue;
@@ -9,7 +9,7 @@ class BarChart{
         this.margin=obj.margin || 10;
         this.axisThickness =obj.axisThickness || 2;
         this.axisTickThickness = 2;
-        this.chartPosX = obj.xPos || 50;
+        this.chartPosX = obj.xPos || 150;
         this.chartPosY = obj.yPos || 350;
     
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
@@ -23,11 +23,12 @@ class BarChart{
         this.tickLength = 3;
     }
     
-    renderHorizotalBars() {
+    renderHorizontalBars() {
         push();
-        translate(this.chartPosX, this.chartPosY);
+        translate(this.chartPosX, (this.chartPosY - this.chartHeight) + (this.barWidth + this.gap));
         push();
-        translate(this.margin,0);
+        rotate(90);
+        translate(-this.margin,0);
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
             fill(this.barColour);
@@ -38,7 +39,7 @@ class BarChart{
         pop();
     }
     
-    renderHorizotalAxis() {
+    renderHorizontalAxis() {
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
@@ -48,34 +49,34 @@ class BarChart{
         pop();
     }
     
-    renderHorizotalLabels(){
+    renderHorizontalLabels(){
         push();
-        translate(this.chartPosX, this.chartPosY);
+        translate(this.chartPosX, (this.chartPosY - this.chartHeight) + (this.barWidth + this.gap));
         push();
-        translate(this.margin,0);
+        translate(-this.margin,0);
     
         for (let i = 0; i < this.data.length; i++) {
-            let xPos = (this.barWidth + this.gap) * i;
+            let yPos = (this.barWidth + this.gap) * i;
             push();
             fill(this.axisTextColour);
-            textAlign(LEFT,CENTER);
-            translate(xPos + (this.barWidth/2), 15);
+            textAlign(RIGHT,CENTER);
+            translate(this.barWidth/2, yPos);
             textSize(15);
-            rotate(60);
-            text(this.data[i][this.xValue], 0 ,0);
+            text(this.data[i][this.xValue], -10 ,0);
             pop();
         }
         pop();
         pop();
     }
     
-    renderHorizotalTicks() {
+    renderHorizontalTicks() {
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
         stroke(this.axisTickColour);
         strokeWeight(this.axisTickThickness);
         let tickIncrement = this.chartHeight/this.numTicks;
+        rotate(90)//rotates ticks to x axis
         for(let i = 0; i <= this.numTicks; i++) {
             line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
         }
