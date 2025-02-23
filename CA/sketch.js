@@ -1,6 +1,8 @@
 let data;
 let cleanedData = [];
-let charts = [];
+let BarCharts = [];
+let HorizontalCharts = [];
+let donutCharts = [];
 let femaleScores;
 let ageGroups;
 let chartHeight=300;
@@ -38,13 +40,37 @@ function setup() {
 
 function draw() {
     background(0,100,100);
-    renderBarChart();
-    renderDonut();
+    drawBarChart();
+    drawHorizontal();
+    drawDonut();
     
+    // //charts.push(new DonutChart({
+    //             data:cleanedData,
+    //             chartSize: 300,
+    //         }));
+    
+//     charts.forEach(chart => {
+// //chart.renderDonutChart();
+//     });
+
+    HorizontalCharts.push(new HorizontalChart({
+        data:cleanedData,
+        xValue:"Age_Group",
+        yValue:"Male",
+    }
+    ));
+    
+    //  HorizontalCharts.forEach(horizontal => {
+    //         horizontal.renderHorizontalBars();
+    //         horizontal.renderHorizontalAxis();
+    //         horizontal.renderHorizontalLabels();
+    //         horizontal.renderHorizontalTicks();
+    //  })
+
 }
 
 function GetDonutData() {
-    donutData = cleanedData.map(row => row.rank);
+    donutData = cleanedData.map(row => row.Male);
     total = 0;
     donutData.forEach(item => total += item);
 
@@ -82,22 +108,55 @@ function cleanData(){
     }
 }
 
-function renderBarChart() {
+function drawBarChart() {
 
-    charts.push(new BarChart({
+    BarCharts.push(new BarChart({
         data:cleanedData,
         xValue:"Age_Group",
         yValue:"Male"
     }
     ));
 
-    charts.forEach(chart => {
+    BarCharts.forEach(chart => {
         chart.renderBarChartBars();
         chart.renderBarChartAxis();
         chart.renderBarChartLabels();
         chart.renderBarChartTicks();
     });
 }
+
+function drawHorizontal() {
+    HorizontalCharts.push(new HorizontalChart({
+        data:cleanedData,
+        xValue:"Age_Group",
+        yValue:"Male",
+    }
+    ));
+    
+     HorizontalCharts.forEach(horizontal => {
+            horizontal.renderHorizontalBars();
+            horizontal.renderHorizontalAxis();
+            horizontal.renderHorizontalLabels();
+            horizontal.renderHorizontalTicks();
+     })
+
+
+}
+
+function drawDonut() {
+    donutCharts.push(new DonutChart({
+        data:donutData
+    }
+    ));
+    
+     donutCharts.forEach(donut => {
+            donut.renderDonutChart();
+     })
+
+
+}
+
+
 // function renderDonut() {
 
 //     charts.push(new DonutChart({
@@ -126,19 +185,19 @@ function renderBarChart() {
 //     });
 // }
 
-function renderHorizontalChart() {
+// function renderHorizontalChart() {
 
-    charts.push(new BarChart({
-        data:cleanedData,
-        xValue:"Age_Group",
-        yValue:"Male"
-    }
-    ));
+//     charts.push(new BarChart({
+//         data:cleanedData,
+//         xValue:"Age_Group",
+//         yValue:"Male"
+//     }
+//     ));
 
-    charts.forEach(chart => {
-        chart.renderHorizontalBars();
-        chart.renderHorizontalAxis();
-        chart.renderHorizontalLabels();
-        chart.renderHorizontalTicks();
-    });
-}
+//     charts.forEach(chart => {
+//         chart.renderHorizontalBars();
+//         chart.renderHorizontalAxis();
+//         chart.renderHorizontalLabels();
+//         chart.renderHorizontalTicks();
+//     });
+// }

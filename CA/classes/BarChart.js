@@ -17,7 +17,7 @@ class BarChart{
     
         this.axisColour= color(211,212,217);
         this.axisTickColour= color(187,10,33);
-        this.barColour = color (187,10,33);
+        this.barColour = color (10,187,33);
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;

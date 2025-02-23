@@ -9,7 +9,7 @@ class HorizontalChart{
         this.margin=obj.margin || 10;
         this.axisThickness =obj.axisThickness || 2;
         this.axisTickThickness = 2;
-        this.chartPosX = obj.xPos || 150;
+        this.chartPosX = obj.xPos || 600;
         this.chartPosY = obj.yPos || 350;
     
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
@@ -17,7 +17,7 @@ class HorizontalChart{
     
         this.axisColour= color(211,212,217);
         this.axisTickColour= color(187,10,33);
-        this.barColour = color (187,10,33);
+        this.barColour = color (0,0,150);
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;
