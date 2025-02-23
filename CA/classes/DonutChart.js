@@ -5,13 +5,12 @@ class DonutChart {
         this.chartSize = obj.chartSize || 300;
         this.chartPosX = obj.xPos || 250;
         this.chartPosY = obj.yPos || 650;
-
-        chartColor = color(200,0,0);
     }
 
     renderDonutChart() {
         push()
         translate(this.chartPosX, this.chartPosY);
+        noStroke();
         for (let i = 0; i < this.data.length; i++) {
             fill(random(255),random(255),random(255));
             let start = 0;
@@ -20,14 +19,22 @@ class DonutChart {
             rotate(end);
         }
 
-        fill(0);
+        pop();
         noStroke();
-        //textFont(font)//need to import font
-        text("This is a Donut chart...", 150, 200);
-
-        fill(0);
-        pop();
+        fill(backgroundColor);
         ellipse(this.chartPosX,this.chartPosY,(this.chartSize) / 2, (this.chartSize) / 2) // makes a circle half the size of the chart.
+        fill(0);
+        textAlign(CENTER)
+        textSize(15)
+        //textFont(font)//need to import font
+        text("Genres of", this.chartPosX, this.chartPosY);
+        text("Nintendo releases", this.chartPosX, this.chartPosY + 15);
         pop();
+    }
+
+    renderDonutKey() {
+        translate(this.chartPosX, this.chartPosY);
+        text("Genres of", this.chartPosX, this.chartPosY);
+        text("Nintendo releases", this.chartPosX, this.chartPosY + 15);
     }
 }

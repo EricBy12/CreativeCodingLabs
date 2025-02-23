@@ -3,6 +3,7 @@ let cleanedData = [];
 let BarCharts = [];
 let HorizontalCharts = [];
 let donutCharts = [];
+let stackedCharts = [];
 let femaleScores;
 let ageGroups;
 let chartHeight=300;
@@ -22,9 +23,11 @@ let donutData = [];
 let chartColor;
 let chartTextSize;
 let xPos;
+let barColors = [];
+let backgroundColor;
 
 function preload() {
-    data= loadTable('data/ExampleSet.csv', 'csv', 'header');
+    data= loadTable('data/VGData.csv', 'csv', 'header');
 }
 
 function setup() {
@@ -33,16 +36,20 @@ function setup() {
     noLoop();
     cleanData();
     GetDonutData();
+    
+    backgroundColor = color(0,100,100);
+    barColors.push(color(random(255)), color(random(255)));
 
     
 }
 
 
 function draw() {
-    background(0,100,100);
+    background(backgroundColor);
     drawBarChart();
     drawHorizontal();
     drawDonut();
+    // drawStacked();
     
     // //charts.push(new DonutChart({
     //             data:cleanedData,
@@ -70,50 +77,52 @@ function draw() {
 }
 
 function GetDonutData() {
-    donutData = cleanedData.map(row => row.Male);
+    donutData = cleanedData.map(row => row.Nintendo);
     total = 0;
     donutData.forEach(item => total += item);
 
 }
 
-// function cleanData() {
-//     for (let i = 0; i < data.rows.length; i++) {
-//         cleanedData.push(data.rows[i].obj);
-//     }
-
-//     for (let i = 0; i < cleanedData.length; i++) {
-//         cleanedData[i].rank = parseInt(cleanedData[i].rank);
-//         cleanedData[i].name = String(cleanedData[i].name);
-//         cleanedData[i].platform = String(cleanedData[i].platform);
-//         cleanedData[i].year = parseInt(cleanedData[i].year);
-//         cleanedData[i].genre = String(cleanedData[i].genre);
-//         cleanedData[i].publisher = String(cleanedData[i].publisher);
-//         cleanedData[i].platform = String(cleanedData[i].platform);
-//         cleanedData[i].na_sales = parseFloat(cleanedData[i].na_sales);
-//         cleanedData[i].eu_sales = parseFloat(cleanedData[i].eu_sales);
-//         cleanedData[i].jp_sales = parseFloat(cleanedData[i].jp_sales);
-//         cleanedData[i].other_sales = parseFloat(cleanedData[i].other_sales);
-//         cleanedData[i].global_sales = parseFloat(cleanedData[i].global_sales);
-//     }
-// }
-
-function cleanData(){
-    for(let i=0; i < data.rows.length; i++){
-        cleanedData.push(data.rows[i].obj)
+function cleanData() {
+    for (let i = 0; i < data.rows.length; i++) {
+        cleanedData.push(data.rows[i].obj);
     }
-    for(let i=0; i < cleanedData.length; i++ ){
-        cleanedData[i].Female = parseInt(cleanedData[i].Female)
-        cleanedData[i].Male = parseInt(cleanedData[i].Male)
-        cleanedData[i].Total = parseInt(cleanedData[i].Total)
+
+    for (let i = 0; i < cleanedData.length; i++) {
+        cleanedData[i].Nintendo = parseInt(cleanedData[i].Nintendo)
+        cleanedData[i].genre = String(cleanedData[i].genre);
+        // cleanedData[i].rank = parseInt(cleanedData[i].rank);
+        // cleanedData[i].name = String(cleanedData[i].name);
+        // cleanedData[i].platform = String(cleanedData[i].platform);
+        // cleanedData[i].year = parseInt(cleanedData[i].year);
+        // cleanedData[i].genre = String(cleanedData[i].genre);
+        // cleanedData[i].publisher = String(cleanedData[i].publisher);
+        // cleanedData[i].platform = String(cleanedData[i].platform);
+        // cleanedData[i].na_sales = parseFloat(cleanedData[i].na_sales);
+        // cleanedData[i].eu_sales = parseFloat(cleanedData[i].eu_sales);
+        // cleanedData[i].jp_sales = parseFloat(cleanedData[i].jp_sales);
+        // cleanedData[i].other_sales = parseFloat(cleanedData[i].other_sales);
+        // cleanedData[i].global_sales = parseFloat(cleanedData[i].global_sales);
     }
 }
+
+// function cleanData(){
+//     for(let i=0; i < data.rows.length; i++){
+//         cleanedData.push(data.rows[i].obj)
+//     }
+//     for(let i=0; i < cleanedData.length; i++ ){
+//         cleanedData[i].Female = parseInt(cleanedData[i].Female)
+//         cleanedData[i].Male = parseInt(cleanedData[i].Male)
+//         cleanedData[i].Total = parseInt(cleanedData[i].Total)
+//     }
+// }
 
 function drawBarChart() {
 
     BarCharts.push(new BarChart({
         data:cleanedData,
-        xValue:"Age_Group",
-        yValue:"Male"
+        xValue:"genre",
+        yValue:"Nintendo"
     }
     ));
 
@@ -128,8 +137,8 @@ function drawBarChart() {
 function drawHorizontal() {
     HorizontalCharts.push(new HorizontalChart({
         data:cleanedData,
-        xValue:"Age_Group",
-        yValue:"Male",
+        xValue:"genre",
+        yValue:"Nintendo",
     }
     ));
     
@@ -153,51 +162,20 @@ function drawDonut() {
             donut.renderDonutChart();
      })
 
-
 }
 
-
-// function renderDonut() {
-
-//     charts.push(new DonutChart({
-//         data:donutData,
-//         chartSize: 300,
-//     }
-//     ));
-
-//     charts.forEach(chart => {chart.renderDonutChart()}); //renders donut chart
-// }
-
-// function renderStackedChart() {
-
-//     charts.push(new BarChart({
-//         data:cleanedData,
-//         xValue:"Male",
-//         yValue:"Age_Group"
-//     }
-//     ));
-
-//     charts.forEach(chart => {
-//         chart.renderStackedBars();
-//         chart.renderStackedAxis();
-//         chart.renderStackedLabels();
-//         //chart.renderBarChartTicks();
-//     });
-// }
-
-// function renderHorizontalChart() {
-
-//     charts.push(new BarChart({
-//         data:cleanedData,
-//         xValue:"Age_Group",
-//         yValue:"Male"
-//     }
-//     ));
-
-//     charts.forEach(chart => {
-//         chart.renderHorizontalBars();
-//         chart.renderHorizontalAxis();
-//         chart.renderHorizontalLabels();
-//         chart.renderHorizontalTicks();
-//     });
-// }
+function drawStacked() {
+    stackedCharts.push(new StackedChart({
+        data:cleanedData,
+        xValue:"Age_Group",
+        yValues:["Male", "Female"]
+    }
+    ));
+    
+     stackedCharts.forEach(stacked => {
+            stacked.renderStackedBars();
+            stacked.renderStackedAxis();
+            stacked.renderStackedText();
+            stacked.renderStackedTicks();
+     })
+    }
