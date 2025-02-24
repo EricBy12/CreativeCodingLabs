@@ -23,8 +23,9 @@ let donutData = [];
 let chartColor;
 let chartTextSize;
 let xPos;
-let barColors = [];
+let barColorsArray = [];
 let backgroundColor;
+let yValueTotal;
 
 function preload() {
     data= loadTable('data/VGData.csv', 'csv', 'header');
@@ -38,7 +39,7 @@ function setup() {
     GetDonutData();
     
     backgroundColor = color(0,100,100);
-    barColors.push(color(random(255)), color(random(255)));
+    barColorsArray.push("#4D9DE0", "#e15554", "#e1bc29", "#3bb273","#7768AE", "#ADFC92", "#21A0A0", "#F8F8F8", "#37323E", "#F7C59F", "#7F7CAF", "#645DD7");
 
     
 }
@@ -49,7 +50,7 @@ function draw() {
     drawBarChart();
     drawHorizontal();
     drawDonut();
-    // drawStacked();
+    drawStacked();
     
     // //charts.push(new DonutChart({
     //             data:cleanedData,
@@ -171,6 +172,8 @@ function drawStacked() {
         yValues:["Nintendo", "Capcom"]
     }
     ));
+
+    
     
      stackedCharts.forEach(stacked => {
             stacked.renderStackedBars();

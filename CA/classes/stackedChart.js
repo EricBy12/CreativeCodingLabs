@@ -2,7 +2,7 @@ class StackedChart{
     constructor(obj) {
         this.data = obj.data;
         this.xValue = obj.xValue;
-        this.yValues = obj.yValue || [];
+        this.yValues = obj.yValues || [];
         this.chartHeight=obj.chartHeight || 300;
         this.chartWidth=obj.chartWidth ||300;
         this.barWidth=obj.barWidth || 20;
@@ -14,7 +14,7 @@ class StackedChart{
         this.chartTextSize = obj.chartTextSize || 8;
     
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
-        this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValue])));
+        this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValueTotal])));
     
         this.axisColour= color(211,212,217);
         this.axisTickColour= color(187,10,33);
@@ -24,6 +24,7 @@ class StackedChart{
         this.tickLength = 3;
         
     }
+    
 
     renderStackedBars() {
         push();
@@ -34,7 +35,7 @@ class StackedChart{
             push();
     
             for (let j = 0; j < this.yValues.length; j++) {
-                fill(barColours[j]);
+                fill(barColorsArray[j]);
                 noStroke();
                 rect (0,0, this.barWidth, -this.data[i][this.yValues[j]] * this.scaler);
                 translate(0,-this.data[i][this.yValues[j]] * this.scaler - 1);

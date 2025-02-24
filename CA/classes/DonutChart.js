@@ -12,7 +12,9 @@ class DonutChart {
         translate(this.chartPosX, this.chartPosY);
         noStroke();
         for (let i = 0; i < this.data.length; i++) {
-            fill(random(255),random(255),random(255));
+            for(let j = 0; j < barColorsArray.length; j++) {
+                fill(barColorsArray[i]);
+            }
             let start = 0;
             let end = ((this.data[i] / total) * 360);
             arc(0,0,this.chartSize,this.chartSize, start, end, PIE);

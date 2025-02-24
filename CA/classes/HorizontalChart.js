@@ -22,6 +22,9 @@ class HorizontalChart{
         this.numTicks = 10;
         this.tickLength = 3;
     }
+
+    
+
     
     renderHorizontalBars() {
         push();
@@ -31,7 +34,9 @@ class HorizontalChart{
         translate(-this.margin,0);
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
-            fill(this.barColour);
+            for(let j = 0; j < barColorsArray.length; j++) {
+                fill(barColorsArray[i]);
+            }
             noStroke();
             rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler);
         }
