@@ -15,16 +15,14 @@ class HorizontalChart{
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
         this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValue])));
     
-        this.axisColour= color(211,212,217);
+        this.axisColour= color(111,112,117);
         this.axisTickColour= color(187,10,33);
         this.barColour = color (0,0,150);
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;
     }
-
     
-
     
     renderHorizontalBars() {
         push();
@@ -48,6 +46,7 @@ class HorizontalChart{
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
+        strokeWeight(this.axisThickness);
         stroke(this.axisColour);
         line(0,0,0,-this.chartHeight);
         line(0,0,this.chartWidth,0);
@@ -83,7 +82,7 @@ class HorizontalChart{
         let tickIncrement = this.chartHeight/this.numTicks;
         rotate(90)//rotates ticks to x axis
         for(let i = 0; i <= this.numTicks; i++) {
-            line(0, -tickIncrement*i, -this.tickLength, -tickIncrement*i);
+            line(0, -tickIncrement*i, this.tickLength, -tickIncrement*i);
         }
         pop();
     }

@@ -13,7 +13,7 @@ class BarChart {
         this.chartPosY = obj.yPos || 350;
 
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
-        this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValue])));
+        this.scaler = this.chartHeight / (max(cleanedData.map(row => row[yValueTotal])));
 
         this.axisColour= color(211,212,217);
         this.axisTickColour= color(187,10,33);

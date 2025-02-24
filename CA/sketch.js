@@ -18,14 +18,13 @@ let chartPosY = 400;
 let axisColour;
 let barColour;
 let axisTextColour;
-let total;
+let total = 100;
 let donutData = [];
 let chartColor;
 let chartTextSize;
 let xPos;
 let barColorsArray = [];
 let backgroundColor;
-let yValueTotal;
 
 function preload() {
     data= loadTable('data/VGData.csv', 'csv', 'header');
@@ -38,8 +37,8 @@ function setup() {
     cleanData();
     GetDonutData();
     
-    backgroundColor = color(0,100,100);
-    barColorsArray.push("#4D9DE0", "#e15554", "#e1bc29", "#3bb273","#7768AE", "#ADFC92", "#21A0A0", "#F8F8F8", "#37323E", "#F7C59F", "#7F7CAF", "#645DD7");
+    backgroundColor = color("#F8F8F8");
+    barColorsArray.push("#4D9DE0", "#e15554", "#e1bc29", "#3bb273","#7768AE", "#ADFC92", "#21A0A0", "#B9B9B9", "#37323E", "#F7C59F", "#7F7CAF", "#645DD7");
 
     
 }
@@ -169,7 +168,8 @@ function drawStacked() {
     stackedCharts.push(new StackedChart({
         data:cleanedData,
         xValue:"genre",
-        yValues:["Nintendo", "Capcom"]
+        yValues:["Nintendo", "Capcom"],
+        total: total
     }
     ));
 

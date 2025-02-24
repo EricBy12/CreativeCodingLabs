@@ -15,7 +15,7 @@ class BarChart{
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
         this.scaler= this.chartHeight / (max(cleanedData.map(row => row[this.yValue])));
     
-        this.axisColour= color(211,212,217);
+        this.axisColour= color(111,112,117);
         this.axisTickColour= color(187,10,33);
         this.barColour = color (10,187,33);
         this.axisTextColour = color( 13,19,33);
@@ -44,6 +44,7 @@ class BarChart{
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
+        strokeWeight(this.axisThickness);
         stroke(this.axisColour);
         line(0,0,0,-this.chartHeight);
         line(0,0,this.chartWidth,0);
