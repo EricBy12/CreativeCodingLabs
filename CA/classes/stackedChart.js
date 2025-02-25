@@ -15,9 +15,16 @@ class StackedChart{
         this.total = obj.total;
     
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2))/(this.data.length-1);
-        this.scaler = (this.chartHeight / this.total);
+
+        this.totals = this.data.map((row) => {
+            return row.Total
+        })
+
+        this.maxValue = max(this.totals)
+
+        this.scaler = (this.chartHeight / this.maxValue);
     
-        this.axisColour= color(211,212,217);
+        this.axisColour= color(111,112,117);
         this.axisTickColour= color(187,10,33);
         this.barColour = color (187,10,33);
         this.axisTextColour = color( 13,19,33);

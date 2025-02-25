@@ -152,9 +152,9 @@ function drawStacked() {
     stackedCharts.push(new StackedChart({
         data:cleanedData,
         xValue:"genre",
-        yValues:["Nintendo", "Ubisoft"],
+        yValues:["Nintendo", "Ubisoft", "Electronic_Arts", "Sony_Computer_Entertainment", "Capcom"],
         total: "Total",
-        chartTitle: "Something wrong with Total"
+        chartTitle: "Genre Releases of all publishers"
     }
     ));
 
