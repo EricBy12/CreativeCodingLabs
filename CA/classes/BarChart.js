@@ -26,8 +26,8 @@ class BarChart{
     renderBarChartTitle() {
         push();
         translate(this.chartPosX,this.chartPosY);
-        textSize(20)
-        textAlign(LEFT)
+        textSize(20);
+        textAlign(LEFT);
         text("BarChart...",0,-this.chartHeight - 20);
         pop();
     }

@@ -156,7 +156,9 @@ function drawHorizontal() {
 
 function drawDonut() {
     donutCharts.push(new DonutChart({
-        data:donutData
+        data:cleanedData,
+        titles: "genre",
+        donutValues: "Nintendo"
     }
     ));
     
