@@ -23,6 +23,7 @@ class StackedChart{
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;
+        this.chartTitle = obj.chartTitle || "Stacked Chart...";
         
     }
     
@@ -32,7 +33,7 @@ class StackedChart{
         translate(this.chartPosX,this.chartPosY);
         textSize(20)
         textAlign(LEFT)
-        text("StackedBarChart...",0,-this.chartHeight - 20);
+        text(this.chartTitle,0,-this.chartHeight - 20);
     }
 
 

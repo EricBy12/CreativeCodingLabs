@@ -4,7 +4,7 @@ class BarChart{
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
         this.chartHeight=obj.chartHeight || 300;
-        this.chartWidth=obj.chartWidth ||300;
+        this.chartWidth=obj.chartWidth ||350;
         this.barWidth=obj.barWidth || 20;
         this.margin=obj.margin || 10;
         this.axisThickness =obj.axisThickness || 2;
@@ -21,15 +21,16 @@ class BarChart{
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;
+        this.chartTitle = obj.chartTitle || "BarChart...";
     }
     
-    renderBarChartTitle() {
+    renderBarChartTitle() { //Renders the title
         push();
         translate(this.chartPosX,this.chartPosY);
         textSize(20);
         textFont(font)
         textAlign(LEFT);
-        text("BarChart...",0,-this.chartHeight - 20);
+        text(this.chartTitle,0,-this.chartHeight - 20);//Title
         pop();
     }
 
@@ -68,6 +69,7 @@ class BarChart{
         translate(this.chartPosX, this.chartPosY);
         push();
         translate(this.margin,0);
+        textFont(font);
     
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;

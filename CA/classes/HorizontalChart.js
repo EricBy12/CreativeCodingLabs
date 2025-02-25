@@ -21,15 +21,16 @@ class HorizontalChart{
         this.axisTextColour = color( 13,19,33);
         this.numTicks = 10;
         this.tickLength = 3;
+        this.chartTitle = obj.chartTitle || "HorizontalChart...";
     }
     
     renderHorizontalTitle() {
         push();
         translate(this.chartPosX,this.chartPosY);
         textSize(20)
-        textFont(font)
+    
         textAlign(LEFT)
-        text("HorizontalBarChart...",0,-this.chartHeight - 20);
+        text(this.chartTitle,0,-this.chartHeight - 20);
         pop();
     }
     
@@ -69,6 +70,7 @@ class HorizontalChart{
         translate(this.chartPosX, (this.chartPosY - this.chartHeight) + (this.barWidth + this.gap));
         push();
         translate(-this.margin,0);
+        textFont(font);
     
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + this.gap) * i;
