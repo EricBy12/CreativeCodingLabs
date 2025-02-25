@@ -23,6 +23,14 @@ class HorizontalChart{
         this.tickLength = 3;
     }
     
+    renderHorizontalTitle() {
+        push();
+        translate(this.chartPosX,this.chartPosY);
+        textSize(20)
+        textAlign(LEFT)
+        text("HorizontalBarChart...",0,-this.chartHeight - 20);
+        pop();
+    }
     
     renderHorizontalBars() {
         push();

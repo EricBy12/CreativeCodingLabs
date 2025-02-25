@@ -127,6 +127,7 @@ function drawBarChart() {
     ));
 
     BarCharts.forEach(chart => {
+        chart.renderBarChartTitle();
         chart.renderBarChartBars();
         chart.renderBarChartAxis();
         chart.renderBarChartLabels();
@@ -143,6 +144,7 @@ function drawHorizontal() {
     ));
     
      HorizontalCharts.forEach(horizontal => {
+        horizontal.renderHorizontalTitle();
             horizontal.renderHorizontalBars();
             horizontal.renderHorizontalAxis();
             horizontal.renderHorizontalLabels();
@@ -160,6 +162,7 @@ function drawDonut() {
     
      donutCharts.forEach(donut => {
             donut.renderDonutChart();
+            donut.renderDonutKey();
      })
 
 }
@@ -176,6 +179,7 @@ function drawStacked() {
     
     
      stackedCharts.forEach(stacked => {
+        stacked.renderStackedTitle();
             stacked.renderStackedBars();
             stacked.renderStackedAxis();
             stacked.renderStackedText();

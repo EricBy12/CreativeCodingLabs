@@ -23,6 +23,15 @@ class BarChart{
         this.tickLength = 3;
     }
     
+    renderBarChartTitle() {
+        push();
+        translate(this.chartPosX,this.chartPosY);
+        textSize(20)
+        textAlign(LEFT)
+        text("BarChart...",0,-this.chartHeight - 20);
+        pop();
+    }
+
     renderBarChartBars() {
         push();
         translate(this.chartPosX, this.chartPosY);
@@ -30,6 +39,7 @@ class BarChart{
         translate(this.margin,0);
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
+            
             for(let j = 0; j < barColorsArray.length; j++) {
                 fill(barColorsArray[i]);
             }

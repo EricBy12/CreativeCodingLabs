@@ -9,7 +9,7 @@ class StackedChart{
         this.margin=obj.margin || 10;
         this.axisThickness =obj.axisThickness || 2;
         this.axisTickThickness = 2;
-        this.chartPosX = obj.xPos || 600;
+        this.chartPosX = obj.xPos || 1000;
         this.chartPosY = obj.yPos || 750;
         this.chartTextSize = obj.chartTextSize || 8;
         this.total = obj.total;
@@ -27,6 +27,15 @@ class StackedChart{
     }
     
 
+    renderStackedTitle() {
+        push();
+        translate(this.chartPosX,this.chartPosY);
+        textSize(20)
+        textAlign(LEFT)
+        text("StackedBarChart...",0,-this.chartHeight - 20);
+    }
+
+
     renderStackedBars() {
         pop();
         
@@ -43,6 +52,16 @@ class StackedChart{
                 noStroke();
                 rect (0,0, this.barWidth, -this.data[i][this.yValues[j]] * this.scaler);
                 translate(0,-this.data[i][this.yValues[j]] * this.scaler - 1);
+
+                // fill(this.axisTextColour);
+                // noStroke();
+                // textAlign(LEFT);
+                // textSize(this.chartTextSize);
+                // push();
+                // translate(xPos + (this.barWidth/2),10);
+                // rotate(90);
+                // text(this.data[i][this.xValue],0,0);
+                // pop();
             }
             pop();
             pop();
@@ -60,19 +79,11 @@ class StackedChart{
     }
     
     renderStackedText() { //Put this into the render bars function!!
-        fill(this.axisTextColour);
-        noStroke();
-        textAlign(LEFT, CENTER);
-        textSize(this.chartTextSize);
-        push();
-        translate(xPos + (this.barWidth/2),10);
-        rotate(60);
-        text(this.data[i][this.xValue],0,0);
-        pop();
-        pop();
+        
     }
 
     renderStackedTicks() {
+        pop();
         push();
         translate(-this.margin,0);
         noFill();

@@ -5,7 +5,9 @@ class DonutChart {
         this.chartSize = obj.chartSize || 300;
         this.chartPosX = obj.xPos || 250;
         this.chartPosY = obj.yPos || 650;
+        this.keySize = obj.keySize || 20;
     }
+
 
     renderDonutChart() {
         push()
@@ -35,8 +37,15 @@ class DonutChart {
     }
 
     renderDonutKey() {
-        translate(this.chartPosX, this.chartPosY);
-        text("Genres of", this.chartPosX, this.chartPosY);
-        text("Nintendo releases", this.chartPosX, this.chartPosY + 15);
+        textAlign(LEFT,CENTER)
+        textSize(15)
+        push();
+        translate(this.chartPosX + this.chartSize/1.5, this.chartPosY - (this.chartSize/2));
+        rect(0,0,this.keySize,this.keySize)
+        text("this.data[i]", 30,this.keySize/2)
+        // for (let i = 0; i < this.data.length; i++) {
+            
+        // }
+        pop();
     }
 }
