@@ -18,16 +18,18 @@ let chartPosY = 400;
 let axisColour;
 let barColour;
 let axisTextColour;
-let total = 100;
+let total = 500;
 let donutData = [];
 let chartColor;
 let chartTextSize;
 let xPos;
 let barColorsArray = [];
 let backgroundColor;
+let donutPercentages = [];
 
 function preload() {
     data= loadTable('data/VGData.csv', 'csv', 'header');
+    font = loadFont('Nunito/static/Nunito-Black.ttf')
 }
 
 function setup() {
@@ -39,6 +41,8 @@ function setup() {
     
     backgroundColor = color("#F8F8F8");
     barColorsArray.push("#4D9DE0", "#e15554", "#e1bc29", "#3bb273","#7768AE", "#ADFC92", "#21A0A0", "#B9B9B9", "#37323E", "#F7C59F", "#7F7CAF", "#645DD7");
+    //barColorsArray.push("#7400B8", "#6930C3", "#5E60CE", "#5390D9","#4EA8DE", "#48BFE3", "#56CFE1", "#64DFDF", "#72EFDD", "#80FFDB", "#ADFFE8", "#C2FFEE");
+    //barColorsArray.push("#0E1DB0", "#0E2CB0", "#0E3BB0", "#0E4AB0","#0F59B1", "#0F67B1", "#0F76B1", "#0F85B1", "#0F94B1", "#1F94A1", "#2F8590", "#3F7680");
 
     
 }
@@ -50,37 +54,12 @@ function draw() {
     drawHorizontal();
     drawDonut();
     drawStacked();
-    
-    // //charts.push(new DonutChart({
-    //             data:cleanedData,
-    //             chartSize: 300,
-    //         }));
-    
-//     charts.forEach(chart => {
-// //chart.renderDonutChart();
-//     });
-
-    HorizontalCharts.push(new HorizontalChart({
-        data:cleanedData,
-        xValue:"Age_Group",
-        yValue:"Male",
-    }
-    ));
-    
-    //  HorizontalCharts.forEach(horizontal => {
-    //         horizontal.renderHorizontalBars();
-    //         horizontal.renderHorizontalAxis();
-    //         horizontal.renderHorizontalLabels();
-    //         horizontal.renderHorizontalTicks();
-    //  })
-
 }
 
 function GetDonutData() {
     donutData = cleanedData.map(row => row.Nintendo);
-    total = 0;
-    donutData.forEach(item => total += item);
-
+    donutTotal = 0;
+    donutData.forEach(item => donutTotal += item);
 }
 
 function cleanData() {
@@ -89,33 +68,15 @@ function cleanData() {
     }
 
     for (let i = 0; i < cleanedData.length; i++) {
-        cleanedData[i].Nintendo = parseInt(cleanedData[i].Nintendo)
+        
         cleanedData[i].genre = String(cleanedData[i].genre);
-        // cleanedData[i].rank = parseInt(cleanedData[i].rank);
-        // cleanedData[i].name = String(cleanedData[i].name);
-        // cleanedData[i].platform = String(cleanedData[i].platform);
-        // cleanedData[i].year = parseInt(cleanedData[i].year);
-        // cleanedData[i].genre = String(cleanedData[i].genre);
-        // cleanedData[i].publisher = String(cleanedData[i].publisher);
-        // cleanedData[i].platform = String(cleanedData[i].platform);
-        // cleanedData[i].na_sales = parseFloat(cleanedData[i].na_sales);
-        // cleanedData[i].eu_sales = parseFloat(cleanedData[i].eu_sales);
-        // cleanedData[i].jp_sales = parseFloat(cleanedData[i].jp_sales);
-        // cleanedData[i].other_sales = parseFloat(cleanedData[i].other_sales);
-        // cleanedData[i].global_sales = parseFloat(cleanedData[i].global_sales);
+        cleanedData[i].Nintendo = parseInt(cleanedData[i].Nintendo)
+        cleanedData[i].Electronic_Arts = parseInt(cleanedData[i].Electronic_Arts)
+        cleanedData[i].Sony_Computer_Entertainment = parseInt(cleanedData[i].Sony_Computer_Entertainment)
+        cleanedData[i].Ubisoft = parseInt(cleanedData[i].Ubisoft)
+        cleanedData[i].Capcom = parseInt(cleanedData[i].Capcom)
     }
 }
-
-// function cleanData(){
-//     for(let i=0; i < data.rows.length; i++){
-//         cleanedData.push(data.rows[i].obj)
-//     }
-//     for(let i=0; i < cleanedData.length; i++ ){
-//         cleanedData[i].Female = parseInt(cleanedData[i].Female)
-//         cleanedData[i].Male = parseInt(cleanedData[i].Male)
-//         cleanedData[i].Total = parseInt(cleanedData[i].Total)
-//     }
-// }
 
 function drawBarChart() {
 
@@ -142,6 +103,16 @@ function drawHorizontal() {
         yValue:"Nintendo",
     }
     ));
+    HorizontalCharts.push(new HorizontalChart({
+        data:cleanedData,
+        xPos:1100,
+        xValue:"genre",
+        yValue:"Electronic_Arts",
+    }
+    ));
+    
+    
+   
     
      HorizontalCharts.forEach(horizontal => {
         horizontal.renderHorizontalTitle();
@@ -173,7 +144,7 @@ function drawStacked() {
     stackedCharts.push(new StackedChart({
         data:cleanedData,
         xValue:"genre",
-        yValues:["Nintendo", "Capcom"],
+        yValues:["Nintendo", "Ubisoft"],
         total: total
     }
     ));

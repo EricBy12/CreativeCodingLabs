@@ -27,6 +27,7 @@ class HorizontalChart{
         push();
         translate(this.chartPosX,this.chartPosY);
         textSize(20)
+        textFont(font)
         textAlign(LEFT)
         text("HorizontalBarChart...",0,-this.chartHeight - 20);
         pop();
@@ -40,11 +41,11 @@ class HorizontalChart{
         translate(-this.margin,0);
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
-            for(let j = 0; j < barColorsArray.length; j++) {
-                fill(barColorsArray[i]);
-            }
+            fill(barColorsArray[i]);
             noStroke();
             rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler);
+            fill(0)
+            text(this.data[i][this.yValue], xPos,-this.data[i][this.yValue]*this.scaler -5)
         }
         pop();
         pop();
@@ -60,6 +61,8 @@ class HorizontalChart{
         line(0,0,this.chartWidth,0);
         pop();
     }
+
+    renderHorizontalAxisLabels() {}
     
     renderHorizontalLabels(){
         push();
