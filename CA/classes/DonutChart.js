@@ -45,13 +45,13 @@ class DonutChart {
         push();
         translate(this.chartPosX + this.chartSize/1.5, this.chartPosY - (this.chartSize/2));
         
-        for (let i = 0; i < this.data.length; i++) { //loop draws the legend
+        for (let i = 0; i < this.data.length; i++) { //loop draws the legend and sizes it based on the size of the chart
             fill(barColorsArray[i]); //colours the legend
             donutPercentages.push(((this.data[i][this.donutValues] / donutTotal) * 100));//Finds each values percentage of the chart
             rect(0,(30 + (this.keySize + 10) * i),this.keySize,this.keySize)// legend colours
 
             fill(0)
-            // Legend Text
+            // Legend Text that displays the title, its value and its percentage of the donut chart
             text(this.data[i][this.titles] + " (" + (this.data[i][this.donutValues]) + ")  " + Math.round(donutPercentages[i]) + "%", 30 + this.keySize / 2 ,(this.keySize/2) + (30 + (this.keySize + 10) * i))
         }
         pop();

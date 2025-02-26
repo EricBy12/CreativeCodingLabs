@@ -30,7 +30,7 @@ class HorizontalChart{
         textSize(20)
     
         textAlign(LEFT)
-        text(this.chartTitle,0,-this.chartHeight - 20);
+        text(this.chartTitle,0,-this.chartHeight - 20);//Draws the title
         pop();
     }
     
@@ -42,7 +42,7 @@ class HorizontalChart{
         translate(-this.margin,0);
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
-            fill(barColorsArray[i]);
+            fill(this.barColour);
             noStroke();
             rect(xPos,0,this.barWidth,-this.data[i][this.yValue]*this.scaler);
             fill(0)

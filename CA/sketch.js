@@ -4,6 +4,7 @@ let BarCharts = [];
 let HorizontalCharts = [];
 let donutCharts = [];
 let stackedCharts = [];
+let stackedChartsAVG = [];
 let femaleScores;
 let ageGroups;
 let chartHeight=300;
@@ -26,6 +27,7 @@ let xPos;
 let barColorsArray = [];
 let backgroundColor;
 let donutPercentages = [];
+let averages;
 
 function preload() {
     data = loadTable('data/VGData.csv', 'csv', 'header'); //Loads dataset
@@ -33,7 +35,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1500,1500);
+    createCanvas(2500,2500);
     angleMode(DEGREES);
     noLoop();
     cleanData(); // Runs the cleanData function
@@ -57,6 +59,7 @@ function draw() {
     drawHorizontal();
     drawDonut();
     drawStacked();
+    drawStackedAVG();
 }
 
 function GetDonutData() {
@@ -152,7 +155,7 @@ function drawStacked() {
     stackedCharts.push(new StackedChart({
         data:cleanedData,
         xValue:"genre",
-        yValues:["Nintendo", "Ubisoft", "Electronic_Arts", "Sony_Computer_Entertainment", "Capcom"],
+        yValues:["Nintendo", "Ubisoft", "Sony_Computer_Entertainment", "Capcom"],
         total: "Total",
         chartTitle: "Genre Releases of all publishers"
     }
@@ -166,5 +169,26 @@ function drawStacked() {
             stacked.renderStackedAxis();
             stacked.renderStackedText();
             stacked.renderStackedTicks();
+            stacked.renderStackedLegend();
      })
     }
+
+    function drawStackedAVG() {
+        stackedChartsAVG.push(new StackedChartAVG({
+            data:cleanedData,
+            xValue:"genre",
+            yValues:["Nintendo", "Electronic_Arts", "Ubisoft"],
+            total: "Total",
+            chartTitle: "Genre Releases of MOST publishers"
+        }
+        ));
+         stackedChartsAVG.forEach(stackedAVG => {
+                stackedAVG.renderStackedAVGTitle();
+                stackedAVG.renderStackedAVGBars();
+                stackedAVG.renderStackedAVGLines();
+                stackedAVG.renderStackedAVGAxis();
+                stackedAVG.renderStackedAVGText();
+                stackedAVG.renderStackedAVGTicks();
+                stackedAVG.renderStackedAVGLegend();
+         })
+        }
