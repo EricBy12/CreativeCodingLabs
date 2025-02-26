@@ -86,38 +86,11 @@ class StackedChartAVG{
         }
         
     }
-
-    // renderStackedAVGLines() {
-
-    //     let avgs = (this.total / this.yValues.length);
-    //     console.log(avgs)
-    //     push();
-	// translate(chartPosX, chartPosY);
-
-	// push();
-	// translate(margin, 0);
-
-	// beginShape();
-	// for (let i = 0; i < cleanedData.length; i++) {
-	// 	let xPos = (barWidth + gap) * i;
-	// 	stroke(barColorsArray[i]);
-	// 	strokeWeight(1);
-	// 	noFill();
-	// 	vertex(xPos, -this.yValues[i] * scaler);
-
-	// 	stroke(255, 0, 0);
-	// 	strokeWeight(5);
-	// 	ellipse(xPos, -this.yValues[i] * scaler, 10, 10);
-	// }
-	// endShape();  
-    // pop();
-    // pop();  
-    // }
     
-    // GPT
+    //troubleshooting using Chat GPT and updataed code from suggestions
     renderStackedAVGLines() {
         
-        console.log("Computed Averages:", this.averages);
+        console.log("Computed Averages:", this.averages);//debugging avg line not appearing, avgs are good
 
         push();
         translate(this.chartPosX, this.chartPosY);
@@ -129,16 +102,15 @@ class StackedChartAVG{
 
         // Plot the average line
         for (let i = 0; i < this.data.length; i++) {
-            let xPos = (this.barWidth + this.gap) * i;
-            let yPos = -this.averages[i] * this.AVGscaler;  // Position the point based on the average value
-            if (yPos < this.chartPosY - this.chartHeight || yPos > this.chartPosY) { console.error(`Point ${i} is off-chart! Value: ${this.averages[i]}, yPos: ${yPos}`); } if (xPos < this.chartPosX || xPos > this.chartPosX + this.chartWidth) { console.error(`Point ${i} is off-chart horizontally! xPos: ${xPos}`); }
+            let x = (this.barWidth + this.gap) * i;
+            let y = this.averages[i] * this.AVGscaler;  // Position the point based on the average value NOT WORKING
             
-            vertex(xPos, yPos);
+            vertex(x, y);
 
             // Optional: Draw a point at each average value
             stroke(255, 0, 0);  // Red color for points
             strokeWeight(5);
-            ellipse(xPos, yPos, 10, 10);  // Draw a red point at the average value
+            ellipse(x, y, 10, 10);  // Draw a red point at the average value
         }
 
         endShape();
@@ -156,7 +128,7 @@ class StackedChartAVG{
         line (0,0,this.chartWidth,0);
     }
     
-    renderStackedAVGText() { //Put this into the render bars function!!
+    renderStackedAVGText() {
         push();
         translate(0,0);
         push();
